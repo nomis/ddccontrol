@@ -991,6 +991,7 @@ static int ddcci_open_with_addr(struct monitor* mon, const char* filename, int a
 	}
 	
 	mon->addr = addr;
+	return 0;
 	
 	if (ddcci_read_edid(mon, edid) < 0) {
 		return -2;

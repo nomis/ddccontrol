@@ -194,6 +194,7 @@ int main(int argc, char **argv)
 	char *fn;
 	
 	char *datadir = NULL;
+	char *edidfile = NULL;
 	char *pnpname = NULL; /* pnpname for -i parameter */
 	
 	/* what to do */
@@ -220,7 +221,7 @@ int main(int argc, char **argv)
 		"This program comes with ABSOLUTELY NO WARRANTY.\n"
 		"You may redistribute copies of this program under the terms of the GNU General Public License.\n\n"), VERSION);
 	
-	while ((i=getopt(argc,argv, "hdr:w:csfvpb:i:")) >= 0)
+	while ((i=getopt(argc,argv, "hdr:w:csfvpb:e:i:")) >= 0)
 	{
 		switch(i) {
 		case 'h':
@@ -265,6 +266,9 @@ int main(int argc, char **argv)
 			break;
 		case 'p':
 			probe++;
+			break;
+		case 'e':
+			edidfile = optarg;
 			break;
 		case 'i': /* Undocumented developer parameter: check integrity of a specific EDID id */
 			pnpname = optarg;
